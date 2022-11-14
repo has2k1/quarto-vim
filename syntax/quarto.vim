@@ -20,3 +20,10 @@ syn region pandocPythonChunk
             \ contains=@python
 
 syn region pandocInlinePython matchgroup=Operator start=/`python\s/ end=/`/ contains=@Python concealends
+
+" Highlight code recognized by pandoc but not defined in pandoc.vim
+syn match pandocDivBegin '^:::\+ {.\{-}}' contains=pandocHeaderAttr
+syn match pandocDivEnd '^:::\+$'
+
+highlight default link pandocDivBegin Delimiter
+highlight default link pandocDivEnd Delimiter
